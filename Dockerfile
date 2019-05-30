@@ -1,4 +1,4 @@
-FROM anacpe9/arm64v8-alpine-golang:4.0.0
+FROM anacha/arm64v8-alpine-qemu:4.0.0
 
 # origin
 # https://github.com/docker-library/golang/blob/master/1.12/alpine3.9/Dockerfile
