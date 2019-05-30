@@ -4,6 +4,7 @@ FROM anacha/arm64v8-alpine-qemu:4.0.0
 ENV QEMU_BIN_DIR=/usr/bin
 ADD ./register.sh /register
 ADD https://raw.githubusercontent.com/qemu/qemu/master/scripts/qemu-binfmt-conf.sh /qemu-binfmt-conf.sh
+RUN uname -a
 RUN chmod +x /qemu-binfmt-conf.sh
 RUN /register --reset
 
@@ -20,8 +21,7 @@ RUN [ ! -e /etc/nsswitch.conf ] && echo 'hosts: files dns' > /etc/nsswitch.conf
 
 ENV GOLANG_VERSION 1.12.5
 
-RUN uname -a; \
-    set -eux; \
+RUN set -eux; \
     apk add --no-cache --virtual .build-deps \
     bash \
     gcc \
