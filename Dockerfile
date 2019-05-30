@@ -1,5 +1,12 @@
 FROM anacha/arm64v8-alpine-qemu:4.0.0
 
+# https://github.com/multiarch/qemu-user-static/blob/master/register/Dockerfile
+ENV QEMU_BIN_DIR=/usr/bin
+ADD ./register.sh /register
+ADD https://raw.githubusercontent.com/qemu/qemu/master/scripts/qemu-binfmt-conf.sh /qemu-binfmt-conf.sh
+RUN chmod +x /qemu-binfmt-conf.sh
+RUN /register --reset
+
 # origin
 # https://github.com/docker-library/golang/blob/master/1.12/alpine3.9/Dockerfile
 
