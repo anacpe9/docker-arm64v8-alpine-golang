@@ -13,7 +13,8 @@ RUN [ ! -e /etc/nsswitch.conf ] && echo 'hosts: files dns' > /etc/nsswitch.conf
 
 ENV GOLANG_VERSION 1.12.5
 
-RUN set -eux; \
+RUN uname -a; \
+    set -eux; \
     apk add --no-cache --virtual .build-deps \
     bash \
     gcc \
