@@ -11,6 +11,7 @@ docker:release:
   image: docker:latest
   variables:
     DOCKER_REGISTRY_DOCKERHUB_REPO: "anacha/arm64v8-alpine-golang"
+    TMPTAG: "1.12.5"
   only:
   - master
   - dev
