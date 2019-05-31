@@ -13,21 +13,21 @@ FROM anacha/arm64v8-alpine-qemu:4.0.0
 
 ENV GOLANG_VERSION 1.12.5
 
-RUN apk add --no-cache \
-    ca-certificates && \
+RUN apk add --no-cache ca-certificates && \
 	\
     # set up nsswitch.conf for Go's "netgo" implementation
     # - https://github.com/golang/go/blob/go1.9.1/src/net/conf.go#L194-L275
     # - docker run --rm debian:stretch grep '^hosts:' /etc/nsswitch.conf
-    [ ! -e /etc/nsswitch.conf ] && echo 'hosts: files dns' > /etc/nsswitch.conf && \
-	set -eux; \
+    [ ! -e /etc/nsswitch.conf ] && echo 'hosts: files dns' > /etc/nsswitch.conf ; \
+	set -eux \
+	; \
     apk add --no-cache --virtual .build-deps \
     bash \
     gcc \
     musl-dev \
     openssl \
-    go && \
-    \
+    go \
+    ; \
     export \
     # set GOROOT_BOOTSTRAP such that we can actually build Go
     GOROOT_BOOTSTRAP="$(go env GOROOT)" \
