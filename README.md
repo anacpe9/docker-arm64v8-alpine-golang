@@ -1,6 +1,6 @@
 # Alpine + QEMU + ARM64 (aarch64) + Golang
 
-[![Docker Build Status](https://img.shields.io/docker/build/anacha/arm64v8-alpine-golang.svg)](https://hub.docker.com/r/anacha/arm64v8-alpine-golang)
+[![Docker Build Status](https://gitlab.com/dev-to/docker-arm64v8-alpine-golang/badges/master/pipeline.svg)](https://gitlab.com/dev-to/docker-arm64v8-alpine-golang/badges/master/pipeline.svg)
 
 [![](https://images.microbadger.com/badges/version/anacha/arm64v8-alpine-golang.svg)](https://microbadger.com/images/anacha/arm64v8-alpine-golang "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/anacha/arm64v8-alpine-golang:4.svg)](https://microbadger.com/images/anacha/arm64v8-alpine-golang:1.12 "Get your own version badge on microbadger.com")
