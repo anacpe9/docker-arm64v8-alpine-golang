@@ -63,4 +63,4 @@ docker-hub:update-readme:
     -e DOCKERHUB_PASSWORD="$DOCKERHUB_PASSWORD"
     -e DOCKERHUB_REPO_PREFIX="$DOCKERHUB_REPO_PREFIX"
     -e DOCKERHUB_REPO_NAME="$DOCKERHUB_REPO_NAME"
-     sheogorath/readme-to-dockerhub
+    sheogorath/readme-to-dockerhub
