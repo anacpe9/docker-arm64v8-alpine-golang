@@ -5,6 +5,7 @@ variables:
 
 stages:
   - build-and-docker-release
+  - update-docker-hub-readme
 
 docker:release:
   stage: build-and-docker-release
@@ -23,6 +24,7 @@ docker:release:
   cache: {}
   dependencies: []
   script:
+  - docker run --rm --privileged multiarch/qemu-user-static:register --reset
   - >-
     docker build --pull
     -t $CI_REGISTRY_IMAGE:$TMPTAG
@@ -38,3 +40,26 @@ docker:release:
   - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
   - docker logout "$CI_REGISTRY"
   - docker logout "$DOCKERHUB_REGISTRY"
+
+  docker-hub:update-readme:
+  stage: update-docker-hub-readme
+  image: docker:latest
+  variables:
+    DOCKERHUB_REPO_PREFIX: "anacha"
+    DOCKERHUB_REPO_NAME: "arm64v8-alpine-golang"
+    DOCKER_REGISTRY_DOCKERHUB_REPO: "$DOCKERHUB_REPO_PREFIX/$DOCKERHUB_REPO_NAME"
+  only:
+  - master
+  services:
+  - docker:dind
+  cache: {}
+  dependencies: []
+  script:
+  - >-
+    docker run --rm \
+    -v $(pwd)/README.md:/data/README.md \
+    -e DOCKERHUB_USERNAME="$DOCKERHUB_USERNAME" \
+    -e DOCKERHUB_PASSWORD="$DOCKERHUB_PASSWORD" \
+    -e DOCKERHUB_REPO_PREFIX="$DOCKERHUB_REPO_PREFIX" \
+    -e DOCKERHUB_REPO_NAME="$DOCKERHUB_REPO_NAME" \
+     sheogorath/readme-to-dockerhub
