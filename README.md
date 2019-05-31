@@ -3,7 +3,7 @@
 [![Docker Build Status](https://gitlab.com/dev-to/docker-arm64v8-alpine-golang/badges/master/pipeline.svg)](https://gitlab.com/dev-to/docker-arm64v8-alpine-golang/badges/master/pipeline.svg)
 
 [![](https://images.microbadger.com/badges/version/anacha/arm64v8-alpine-golang.svg)](https://microbadger.com/images/anacha/arm64v8-alpine-golang "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/version/anacha/arm64v8-alpine-golang:4.svg)](https://microbadger.com/images/anacha/arm64v8-alpine-golang:1.12 "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/anacha/arm64v8-alpine-golang:1.12.5.svg)](https://microbadger.com/images/anacha/arm64v8-alpine-golang:1.12.5 "Get your own version badge on microbadger.com")
 [![Layers](https://images.microbadger.com/badges/image/anacha/arm64v8-alpine-golang.svg)](https://microbadger.com/images/anacha/arm64v8-alpine-golang "Get your own image badge on microbadger.com")
 
 This project enables building a *Docker* image to allow running *64-bits ARM*
