@@ -33,6 +33,7 @@ docker:release:
     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
     .
   - docker images
+  - echo "$CI_BUILD_TOKEN" | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
   - docker push $CI_REGISTRY_IMAGE:$TMPTAG
   - docker push $CI_REGISTRY_IMAGE:latest
   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin "$DOCKERHUB_REGISTRY"
