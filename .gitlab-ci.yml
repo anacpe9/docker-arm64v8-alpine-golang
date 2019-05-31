@@ -41,7 +41,7 @@ docker:release:
   - docker logout "$CI_REGISTRY"
   - docker logout "$DOCKERHUB_REGISTRY"
 
-  docker-hub:update-readme:
+docker-hub:update-readme:
   stage: update-docker-hub-readme
   image: docker:latest
   variables:
