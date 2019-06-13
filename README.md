@@ -30,11 +30,12 @@ for all supported processors.
 ```text
 +-- arm64v8/alpine:3.9
     |
-    +-- qemu-aarch64-static:4.0.0
+    +-- qemu-aarch64-static:4.0.0-2
         |
-        ` golang:1.12.5
+        ` golang:1.12.6
 ```
 
-| base-3 image  | base-2 image              | base-1 image       |
-| ------------- | ------------------------- | ------------------ |
-| golang:1.12.5 | qemu-aarch64-static:4.0.0 | arm64v8/alpine:3.9 |
+| base-3 image  | base-2 image                | base-1 image       |
+| ------------- | --------------------------- | ------------------ |
+| golang:1.12.6 | qemu-aarch64-static:4.0.0-2 | arm64v8/alpine:3.9 |
+| golang:1.12.5 | qemu-aarch64-static:4.0.0   | arm64v8/alpine:3.9 |
