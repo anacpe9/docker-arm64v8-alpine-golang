@@ -1,4 +1,4 @@
-image: alpine:3.9
+image: alpine:3.10
 
 variables:
   DOCKER_DRIVER: overlay2
@@ -12,7 +12,7 @@ docker:release:
   image: docker:latest
   variables:
     DOCKER_REGISTRY_DOCKERHUB_REPO: "anacha/arm64v8-alpine-golang"
-    TMPTAG: "1.12.7"
+    TMPTAG: "1.12.9"
   only:
   - master
   - dev

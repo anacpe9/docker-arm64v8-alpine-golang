@@ -28,15 +28,16 @@ for all supported processors.
 ## Layers and Dependencies graph
 
 ```text
-+-- arm64v8/alpine:3.9
++-- arm64v8/alpine:3.10
     |
-    +-- qemu-aarch64-static:4.0.0-5
+    +-- qemu-aarch64-static:4.0.0-4
         |
-        ` golang:1.12.7
+        ` golang:1.12.9
 ```
 
-| base-3 image  | base-2 image                | base-1 image       |
-| ------------- | --------------------------- | ------------------ |
-| golang:1.12.7 | qemu-aarch64-static:4.0.0-5 | arm64v8/alpine:3.9 |
-| golang:1.12.6 | qemu-aarch64-static:4.0.0-2 | arm64v8/alpine:3.9 |
-| golang:1.12.5 | qemu-aarch64-static:4.0.0   | arm64v8/alpine:3.9 |
+| base-3 image  | base-2 image                | base-1 image        |
+| ------------- | --------------------------- | ------------------- |
+| golang:1.12.9 | qemu-aarch64-static:4.0.0-4 | arm64v8/alpine:3.10 |
+| golang:1.12.7 | qemu-aarch64-static:4.0.0-5 | arm64v8/alpine:3.9  |
+| golang:1.12.6 | qemu-aarch64-static:4.0.0-2 | arm64v8/alpine:3.9  |
+| golang:1.12.5 | qemu-aarch64-static:4.0.0   | arm64v8/alpine:3.9  |
