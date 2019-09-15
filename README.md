@@ -32,7 +32,7 @@ for all supported processors.
     |
     +-- qemu-aarch64-static:4.1.0-1
         |
-        ` golang:1.30.0
+        ` golang:1.13.0
 ```
 
 | base-3 image  | base-2 image                | base-1 image        |
