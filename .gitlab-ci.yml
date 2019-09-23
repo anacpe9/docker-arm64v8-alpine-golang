@@ -59,6 +59,8 @@ docker:release-arm32v7:
   cache: {}
   dependencies: []
   script:
+  - uname -m
+  - apk --print-arch
   - docker run --rm --privileged multiarch/qemu-user-static:latest --reset -p yes
   - >-
     docker build --pull

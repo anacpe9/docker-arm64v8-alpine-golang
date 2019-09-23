@@ -19,7 +19,7 @@ This project enables building a *Docker* image to allow running *64-bits ARM*
 Before building images from this image or running containers from those on `x86`
 architecture execute the following command:
 
-`docker run --rm --privileged multiarch/qemu-user-static:register --reset`
+`docker run --rm --privileged multiarch/qemu-user-static:latest --reset -p yes`
 
 As described in its [GitHub project](https://github.com/multiarch/qemu-user-static)
 this will register the *static QEMU binary* that exists in this base image
