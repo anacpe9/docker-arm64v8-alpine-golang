@@ -7,40 +7,40 @@ stages:
   - build-and-docker-release
   - update-docker-hub-readme
 
-docker:release:
-  stage: build-and-docker-release
-  image: docker:latest
-  variables:
-    DOCKER_REGISTRY_DOCKERHUB_REPO: "anacha/arm64v8-alpine-golang"
-    TMPTAG: "1.13.0"
-  only:
-  - master
-  - dev
-  tags:
-    - aarch64
-    - alpine
-  services:
-  - docker:dind
-  cache: {}
-  dependencies: []
-  script:
-  - docker run --rm --privileged multiarch/qemu-user-static:register --reset
-  - >-
-    docker build --pull
-    -t $CI_REGISTRY_IMAGE:$TMPTAG
-    -t $CI_REGISTRY_IMAGE:latest
-    -t $DOCKER_REGISTRY_DOCKERHUB_REPO:$TMPTAG
-    -t $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
-    .
-  - docker images
-  - echo "$CI_BUILD_TOKEN" | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
-  - docker push $CI_REGISTRY_IMAGE:$TMPTAG
-  - docker push $CI_REGISTRY_IMAGE:latest
-  - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin "$DOCKERHUB_REGISTRY"
-  - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:$TMPTAG
-  - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
-  - docker logout "$CI_REGISTRY"
-  - docker logout "$DOCKERHUB_REGISTRY"
+# docker:release:
+#   stage: build-and-docker-release
+#   image: docker:latest
+#   variables:
+#     DOCKER_REGISTRY_DOCKERHUB_REPO: "anacha/arm64v8-alpine-golang"
+#     TMPTAG: "1.13.0"
+#   only:
+#   - master
+#   - dev
+#   tags:
+#     - aarch64
+#     - alpine
+#   services:
+#   - docker:dind
+#   cache: {}
+#   dependencies: []
+#   script:
+#   - docker run --rm --privileged multiarch/qemu-user-static:register --reset
+#   - >-
+#     docker build --pull
+#     -t $CI_REGISTRY_IMAGE:$TMPTAG
+#     -t $CI_REGISTRY_IMAGE:latest
+#     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:$TMPTAG
+#     -t $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
+#     .
+#   - docker images
+#   - echo "$CI_BUILD_TOKEN" | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
+#   - docker push $CI_REGISTRY_IMAGE:$TMPTAG
+#   - docker push $CI_REGISTRY_IMAGE:latest
+#   - echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin "$DOCKERHUB_REGISTRY"
+#   - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:$TMPTAG
+#   - docker push $DOCKER_REGISTRY_DOCKERHUB_REPO:latest
+#   - docker logout "$CI_REGISTRY"
+#   - docker logout "$DOCKERHUB_REGISTRY"
 
 docker:release-arm32v7:
   stage: build-and-docker-release
@@ -59,7 +59,7 @@ docker:release-arm32v7:
   cache: {}
   dependencies: []
   script:
-  - docker run --rm --privileged multiarch/qemu-user-static:register --reset
+  - docker run --rm --privileged multiarch/qemu-user-static:latest --reset -p yes
   - >-
     docker build --pull
     -t $CI_REGISTRY_IMAGE:$TMPTAG-arm32v7
