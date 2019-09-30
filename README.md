@@ -32,11 +32,12 @@ for all supported processors.
     |
     +-- qemu-aarch64-static:4.1.0-1
         |
-        ` golang:1.13.0
+        ` golang:1.13.1
 ```
 
 | base-3 image  | base-2 image                | base-1 image        |
 | ------------- | --------------------------- | ------------------- |
+| golang:1.13.1 | qemu-aarch64-static:4.1.0-1 | arm64v8/alpine:3.10 |
 | golang:1.13.0 | qemu-aarch64-static:4.1.0-1 | arm64v8/alpine:3.10 |
 | golang:1.12.9 | qemu-aarch64-static:4.0.0-4 | arm64v8/alpine:3.10 |
 | golang:1.12.7 | qemu-aarch64-static:4.0.0-5 | arm64v8/alpine:3.9  |
