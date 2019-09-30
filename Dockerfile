@@ -1,5 +1,8 @@
 FROM anacha/arm64v8-alpine-qemu:latest
 
+RUN uname -a && \
+    apk --print-arch
+
 RUN apk add --no-cache \
 		ca-certificates
 
