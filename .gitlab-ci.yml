@@ -14,6 +14,7 @@ variables:
 docker:release:
   stage: build-and-docker-release
   image: docker:latest
+  allow_failure: false
   only:
   - master
   - dev
@@ -46,7 +47,7 @@ docker:release:
 docker:release-arm32v7:
   stage: build-and-docker-release
   image: docker:latest
-  allow_failure: false
+  allow_failure: true
   only:
   - master
   - dev
