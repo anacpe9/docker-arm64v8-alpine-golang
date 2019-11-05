@@ -9,7 +9,7 @@ stages:
 
 variables:
   DOCKER_REGISTRY_DOCKERHUB_REPO: "anacha/arm64v8-alpine-golang"
-  TMPTAG: "1.13.2"
+  TMPTAG: "1.13.4"
 
 docker:release:
   stage: build-and-docker-release
